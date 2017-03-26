@@ -1,10 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class HelloWorld extends React.Component {
-  render() {
-    return <h1>Hello World!</h1>;
-  }
-}
+import Links from './components/Links';
 
-ReactDOM.render(<HelloWorld />, document.getElementById('app'));
+ReactDOM.render(<Links />, document.getElementById('app'));

@@ -31,9 +31,10 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
-    "events": "^1.1.1",
     "express": "^4.15.2",
+    "express-graphql": "^0.6.3",
     "flux": "^3.1.2",
+    "graphql": "^0.9.1",
     "kerberos": "^0.0.23",
     "mongodb": "^2.2.25",
     "react": "^15.4.2",
@@ -58,7 +59,9 @@
       "no-underscore-dangle": [
         2,
         {
-          "allow": ["_id"]
+          "allow": [
+            "_id"
+          ]
         }
       ]
     }

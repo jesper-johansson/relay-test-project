@@ -20,10 +20,3 @@ MongoClient.connect(process.env.MONGO_URL || fallbackUrl, (err, db) => {
 
   app.listen(3000, () => console.log('Listening on port 3000'));
 });
-
-// app.get('/data/links', (req, res) => {
-//   database.collection('links').find({}).toArray((err, links) => {
-//     if (err) throw err;
-//     res.json(links);
-//   });
-// });

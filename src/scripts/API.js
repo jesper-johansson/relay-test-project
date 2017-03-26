@@ -3,7 +3,6 @@ import Actions from './actions/Actions';
 
 const API = {
   fetchLinks() {
-    console.log('fetch links executed');
     axios.post('/graphql', {
       query: `{
         links {

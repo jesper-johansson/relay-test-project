@@ -5,11 +5,15 @@ import LinkStore from '../stores/LinkStore';
 const getState = () => ({ links: LinkStore.getAll() });
 
 class Links extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = getState();
-    this.onChange = this.onChange.bind(this);
+  static propTypes = {
+    limit: React.PropTypes.number,
   }
+
+  static defaultProps = {
+    limit: 3,
+  }
+
+  state = getState();
 
   componentDidMount() {
     API.fetchLinks();
@@ -20,13 +24,12 @@ class Links extends React.Component {
     LinkStore.removeListener('change', this.onChange);
   }
 
-  onChange() {
-    console.log('in view');
+  onChange = () => {
     this.setState(getState());
   }
 
   render() {
-    const content = this.state.links.map(link =>
+    const content = this.state.links.slice(0, this.props.limit).map(link =>
       <li key={link._id}>
         <a href={link.url}>
           {link.title}

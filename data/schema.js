@@ -1,19 +1,33 @@
-import { GraphQLSchema, GraphQLObjectType, GraphQLInt, GraphQLString } from 'graphql';
+import {
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLList,
+} from 'graphql';
 
-const schema = new GraphQLSchema({
-  query: new GraphQLObjectType({
-    name: 'Query',
+const Schema = (db) => {
+  const linkType = new GraphQLObjectType({
+    name: 'Link',
     fields: () => ({
-      counter: {
-        type: GraphQLInt,
-        resolve: () => 42,
-      },
-      message: {
-        type: GraphQLString,
-        resolve: () => 'Hello World!',
-      },
+      _id: { type: GraphQLString },
+      title: { type: GraphQLString },
+      url: { type: GraphQLString },
     }),
-  }),
-});
+  });
 
-export default schema;
+  const schema = new GraphQLSchema({
+    query: new GraphQLObjectType({
+      name: 'Query',
+      fields: () => ({
+        links: {
+          type: new GraphQLList(linkType),
+          resolve: () => db.collection('links').find({}).toArray(),
+        },
+      }),
+    }),
+  });
+
+  return schema;
+};
+
+export default Schema;

@@ -4,12 +4,20 @@ import Actions from './actions/Actions';
 const API = {
   fetchLinks() {
     console.log('fetch links executed');
-    axios('/data/links')
+    axios.post('/graphql', {
+      query: `{
+        links {
+          _id,
+          title,
+          url
+        }
+      }`,
+    })
     .catch((err) => {
       console.log(`Error: ${err}`);
     })
     .then((resp) => {
-      Actions.receiveLinks(resp.data);
+      Actions.receiveLinks(resp.data.data.links);
     });
   },
 };

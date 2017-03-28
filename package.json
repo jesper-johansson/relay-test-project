@@ -70,5 +70,10 @@
       ]
     },
     "parser": "babel-eslint"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }

@@ -4,7 +4,7 @@
   "description": "Testing",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node --presets react,es2015 index.js"
+    "start": "./node_modules/.bin/babel-node --presets react,es2015,stage-0 index.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "babel-preset-stage-0": "^6.22.0",
+    "babel-relay-plugin": "^0.11.0",
     "express": "^4.15.2",
     "express-graphql": "^0.6.3",
     "flux": "^3.1.2",
@@ -40,7 +41,8 @@
     "kerberos": "^0.0.23",
     "mongodb": "^2.2.25",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-relay": "^0.10.0"
   },
   "eslintConfig": {
     "extends": "airbnb",

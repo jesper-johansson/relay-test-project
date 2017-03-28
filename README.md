@@ -1,2 +1,2 @@
 # relay-test-project
-Testing
+Testing Relay + React + GraphQL (to MongoDB)
